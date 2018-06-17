@@ -26,18 +26,15 @@ class VideoController extends Controller
     }
 
     // Upload a Video
-    public function post(Request $request){
-        if ($request->get('id'))
-        {
-            if ($this->updateVideo($request))
-            {
+    public function post(Request $request)
+    {
+        if ($request->get('id')) {
+            if ($this->updateVideo($request)) {
                 return redirect()->back()->with('alert-success', 'Updated Successfully');
-            } else
-            {
+            } else {
                 return redirect()->back()->with('alert-warning', 'Updated not Successful');
             }
-        } else
-        {
+        } else {
             $this->validateVideo($request);
             //image
             $imagepath = $request->file('featuredimage')->store('videoimages');
@@ -55,5 +52,30 @@ class VideoController extends Controller
         }
     }
 
+    //Validate Video
+    public function validateVideo(Request $request, $new = true)
+    {
+
+        if ($new)
+        {
+            $this->validate($request, [
+                'featuredimage' => 'required||max:1000000',
+                'filename' => 'required||max:1000000'
+            ]);
+        }
+
+        $this->validate($request, [
+            'title' => 'required||max:191',
+            'description' => 'required'
+        ]);
+
+    }
+
     // Delete a Video
+    public function delete(Request $request) {
+        $video = new Video;
+        $video = $video->find($request->get('id'));
+        $video->delete();
+        return 'Video Deleted';
+    }
 }
