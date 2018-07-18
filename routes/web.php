@@ -20,13 +20,16 @@ Route::get('/', function () {
 | Video Routes
 |--------------------------------------------------------------------------
 */
-    Route::get('/get/video', 'VideoController@get');
-    Route::get('/get/video/single', 'VideoController@single');
-    Route::post('/post/video/single', 'VideoController@post');
-    Route::post('/delete/video/single', 'VideoController@delete');
+    Route::get('/get/video', 'VideoController@get')->middleware('auth:api');
+    Route::get('/get/video/single', 'VideoController@single')->middleware('auth:api');
+    Route::post('/post/video/single', 'VideoController@post')->middleware('auth:api');
+    Route::post('/delete/video/single', 'VideoController@delete')->middleware('auth:api');
 
 /*
 |--------------------------------------------------------------------------
 | Photo Routes
 |--------------------------------------------------------------------------
 */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

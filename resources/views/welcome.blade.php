@@ -79,15 +79,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Banana v0.5 (Beta)
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="#">Documentation</a>
+                    <a href="https://twitter.com/LatestLadies" target="_blank">Latest Ladies Twitter</a>
+                    <a href="https://www.instagram.com/latestladies2018/" target="_blank">Latest Ladies Instagram</a>
+                    <a href="https://taboomindi.com" target="_blank">Taboo Mindi</a>
                 </div>
             </div>
         </div>
