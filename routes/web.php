@@ -22,14 +22,21 @@ Route::get('/', function () {
 */
     Route::get('/get/video', 'VideoController@get')->middleware('auth:api');
     Route::get('/get/video/single', 'VideoController@single')->middleware('auth:api');
-    Route::post('/post/video/single', 'VideoController@post')->middleware('auth:api');
+    Route::post('/post/video/single', 'VideoController@post');
     Route::post('/delete/video/single', 'VideoController@delete')->middleware('auth:api');
 
 /*
 |--------------------------------------------------------------------------
-| Photo Routes
+| Transaction Routes
 |--------------------------------------------------------------------------
 */
+    Route::post('add/transaction', 'TransactionContoller@Store');
+
+
+
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

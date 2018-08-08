@@ -8,56 +8,60 @@ use App\Video;
 class VideoController extends Controller
 {
     // Get All Videos
-    public function get() {
+    public function get()
+    {
         $videos = new Video();
         $videos = $videos->latest()->get();
         return $videos;
     }
 
     // Get a Single Video
-    public function single(Request $request) {
+    public function single(Request $request)
+    {
         $video = new Video();
         $id = $request->get('id');
-        if ($id)
-        {
+        if ($id) {
             $video = $video->where('id', $id)->first();
         }
         return $video;
     }
 
-    // Upload a Video
+    //Upload a Video
     public function post(Request $request)
     {
-        if ($request->get('id')) {
-            if ($this->updateVideo($request)) {
-                return redirect()->back()->with('alert-success', 'Updated Successfully');
-            } else {
-                return redirect()->back()->with('alert-warning', 'Updated not Successful');
-            }
-        } else {
-            $this->validateVideo($request);
-            //image
-            $imagepath = $request->file('featuredimage')->store('videoimages');
-            //video
-            $videopath = $request->file('filename')->store('videos');
+        //Validate the Video
+        $this->validateVideo($request);
 
-            $video = new Video();
-            $video->title = $request->get('title');
-            $video->description = $request->get('description');
-            $video->featuredimage = $imagepath;
-            $video->filename = $videopath;
+        //Image
+        $imagepath = $request->file('featuredimage')->store('videoimages');
 
-            $video->save();
-            return redirect()->route('editVideo', ['id' => $video->id])->with('alert-success', 'Uploaded Successfully');
-        }
+        //Video
+        $videopath = $request->file('filename')->store('videos');
+
+        //Open Video Model
+        $video = new Video();
+
+        //Video Params
+        $video->title = $request->get('title');
+        $video->description = $request->get('description');
+        $video->featuredimage = $imagepath;
+        $video->filename = $videopath;
+        $video->storeId = $request->get('storeId');
+        $video->filesize = $request->get('filesize');
+
+        //Save Video
+        $video->save();
+
+        //Return Statement
+        return 200;
+
     }
 
     //Validate Video
     public function validateVideo(Request $request, $new = true)
     {
 
-        if ($new)
-        {
+        if ($new) {
             $this->validate($request, [
                 'featuredimage' => 'required||max:1000000',
                 'filename' => 'required||max:1000000'
@@ -72,7 +76,8 @@ class VideoController extends Controller
     }
 
     // Delete a Video
-    public function delete(Request $request) {
+    public function delete(Request $request)
+    {
         $video = new Video;
         $video = $video->find($request->get('id'));
         $video->delete();
