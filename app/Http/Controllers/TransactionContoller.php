@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaction;
+use App\Video;
 
 class TransactionContoller extends Controller
 {
@@ -20,5 +21,13 @@ class TransactionContoller extends Controller
         $transaction->save();
 
         return 200;
+    }
+
+    //Download Video
+    public function getDownload(Request $request) {
+        $filename = $request->get('filename');
+        $filePath = public_path('storage/' . $filename);
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        return response()->download($filePath, $request->get('title') . '.' . $ext);
     }
 }

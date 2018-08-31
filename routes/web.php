@@ -31,6 +31,7 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 */
     Route::post('add/transaction', 'TransactionContoller@Store');
+    Route::get('get/video', 'TransactionController@Download');
 
 
 
