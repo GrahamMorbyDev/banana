@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaction;
-use App\Video;
+
 
 class TransactionContoller extends Controller
 {
@@ -25,9 +25,20 @@ class TransactionContoller extends Controller
 
     //Download Video
     public function getDownload(Request $request) {
-        $filename = $request->get('filename');
-        $filePath = public_path('storage/' . $filename);
-        $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        return response()->download($filePath, $request->get('title') . '.' . $ext);
+        $download = new Transaction();
+        $download = $download->where('salesId', $request->get('salesId'))->update('downloadAttempts', '+' , 1);
+        $download->save();
+
+        $get = new Transaction();
+        $get = $get->where('salesId', $request->get('salesId'))->get();
+
+        if($get->downloadAttempts < 4) {
+            $filename = $request->get('filename');
+            $filePath = public_path('storage/' . $filename);
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+            return response()->download($filePath, $request->get('title') . '.' . $ext);
+        }else {
+            return 403;
+        }
     }
 }

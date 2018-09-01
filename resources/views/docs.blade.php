@@ -51,6 +51,16 @@
                 <li>filesize -> String</li>
             </ul>
             <p>Names and ID's must match the above</p>
+
+            <h3>Get a video to download</h3>
+            <hr>
+            <p>To get a video send a get request to get/video and this method requires name and id's</p>
+            <p>Params expected and required</p>
+            <ul>
+                <li>salesId -> String</li>
+                <li>filename ->String</li>
+            </ul>
+            <p>If success the user will get a download based on limits if fail you wil get a 403 return.</p>
         </div>
     </div>
 </div>
