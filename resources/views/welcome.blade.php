@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="#">Documentation</a>
+                    <a href="{{URL::asset('/docs')}}">Documentation</a>
                     <a href="https://twitter.com/LatestLadies" target="_blank">Latest Ladies Twitter</a>
                     <a href="https://www.instagram.com/latestladies2018/" target="_blank">Latest Ladies Instagram</a>
                     <a href="https://taboomindi.com" target="_blank">Taboo Mindi</a>

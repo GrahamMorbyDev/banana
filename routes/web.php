@@ -17,6 +17,14 @@ Route::get('/', function () {
 
 /*
 |--------------------------------------------------------------------------
+| Home Routes
+|--------------------------------------------------------------------------
+*/
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/docs', 'PagesController@docs')->name('docs');
+
+/*
+|--------------------------------------------------------------------------
 | Video Routes
 |--------------------------------------------------------------------------
 */
@@ -34,10 +42,6 @@ Route::get('/', function () {
     Route::get('get/video', 'TransactionController@Download');
 
 
+    Auth::routes();
 
 
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
