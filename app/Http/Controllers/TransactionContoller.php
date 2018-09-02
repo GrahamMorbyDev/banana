@@ -16,6 +16,7 @@ class TransactionContoller extends Controller
         $transaction->filename = $request->get('filename');
         $transaction->purchaseDate = $request->get('purchaseDate');
         $transaction->customerEmail = $request->get('customerEmail');
+        $transaction->storeId = $request->get('storeId');
         $transaction->downloadAttempts = 0;
 
         $transaction->save();
