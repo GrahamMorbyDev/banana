@@ -37,7 +37,7 @@ class TransactionContoller extends Controller
             $filename = $request->get('filename');
             $filePath = public_path('storage/' . $filename);
             $ext = pathinfo($filename, PATHINFO_EXTENSION);
-            return response()->download($filePath, $request->get('title') . '.' . $ext);
+            return response()->download($filePath, $request->get('filename') . '.' . $ext);
         }else {
             return 403;
         }
