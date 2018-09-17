@@ -28,7 +28,7 @@ class TransactionContoller extends Controller
     //Download Video
     public function Download(Request $request) {
         //Get Current Numbers
-        $dmca = DB::table('downloadAttempts')
+        $dmca = DB::table('transactions')
             ->select()
             ->where('salesId', '=', $request->get('salesId'))
             ->get();
@@ -38,7 +38,7 @@ class TransactionContoller extends Controller
         $lifetime = $dmca[0]->downloadAttempts + $daily;
 
         //Update database
-        DB::table('downloadAttempts')->where('salesId', '=', $request->get('salesId'))->update($lifetime);
+        DB::table('transactions')->where('salesId', '=', $request->get('salesId'))->update($lifetime);
 
         return 200;
 
