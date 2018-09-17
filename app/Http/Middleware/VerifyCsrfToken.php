@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/post/video/single',
-        'add/transaction'
+        'add/transaction',
+        'get/video'
     ];
 }

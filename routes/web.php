@@ -28,7 +28,7 @@ Route::get('/', function () {
 | Video Routes
 |--------------------------------------------------------------------------
 */
-    Route::get('/get/video', 'VideoController@get')->middleware('auth:api');
+    //Route::get('/get/video', 'VideoController@get')->middleware('auth:api');
     Route::get('/get/video/single', 'VideoController@single')->middleware('auth:api');
     Route::post('/post/video/single', 'VideoController@post');
     Route::post('/delete/video/single', 'VideoController@delete')->middleware('auth:api');
@@ -39,7 +39,7 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 */
     Route::post('add/transaction', 'TransactionContoller@Store');
-    Route::get('get/video', 'TransactionContoller@Download');
+    Route::post('get/video', 'TransactionContoller@Download');
 
 
     Auth::routes();
