@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaction;
+use Illuminate\Support\Facades\DB;
 
 
 class TransactionContoller extends Controller
@@ -26,9 +27,9 @@ class TransactionContoller extends Controller
 
     //Download Video
     public function Download(Request $request) {
-        $download = new Transaction();
-        //DB::table('lots')->where('salesId', $request->get('salesId'))->increment('sales_price', 1)
-        $download = $download->where('salesId', $request->get('salesId'))->increment('downloadAttempts', 1);
+        //$download = new Transaction();
+        DB::table('transactions')->where('salesId', $request->get('salesId'))->increment('sales_price', 1);
+        //$download = $download->where('salesId', $request->get('salesId'))->increment('downloadAttempts', 1);
         return 200;
 
        /* $get = new Transaction();
