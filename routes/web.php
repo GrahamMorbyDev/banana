@@ -39,7 +39,7 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 */
     Route::post('add/transaction', 'TransactionContoller@Store');
-    Route::get('get/video', 'TransactionController@Download');
+    Route::get('get/video', 'TransactionContoller@Download');
 
 
     Auth::routes();
