@@ -38,8 +38,8 @@ class TransactionContoller extends Controller
 
         if($get->downloadAttempts <= 3) {
             $filename = $request->get('filename');
-            $filePath = public_path('storage/' . $filename);
-            return response()->download($filePath, 'videos/' . $request->get('filename'));
+            $filePath = public_path('storage/videos/' . $filename);
+            return response()->download($filePath, $request->get('filename'));
         }else {
             return 403;
         }
