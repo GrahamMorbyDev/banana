@@ -27,11 +27,19 @@ class TransactionContoller extends Controller
 
     //Download Video
     public function Download(Request $request) {
-        $download = new Transaction();
-        $download = $download->where('salesId', $request->get('salesId'))->firstOrFail();
+        //Get Current Numbers
+        $dmca = DB::table('downloadAttempts')
+            ->select()
+            ->where('salesId', '=', $request->get('salesId'))
+            ->get();
+        $daily = 1;
 
-        $amount = $download->downloadAttempts + 1;
-        $update = $download->downloadAttempts->update($amount);
+        //Add Current to new daily number
+        $lifetime = $dmca[0]->downloadAttempts + $daily;
+
+        //Update database
+        DB::table('downloadAttempts')->where('salesId', '=', $request->get('salesId'))->update($lifetime);
+
         return 200;
 
        /* $get = new Transaction();
