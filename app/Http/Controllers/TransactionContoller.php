@@ -28,7 +28,7 @@ class TransactionContoller extends Controller
     //Download Video
     public function Download(Request $request) {
         //$download = new Transaction();
-        DB::table('transactions')->where('salesId', $request->get('salesId'))->increment('sales_price', 1);
+        DB::table('transactions')->where('salesId', $request->get('salesId'))->increment('downloadAttempts', 1);
         //$download = $download->where('salesId', $request->get('salesId'))->increment('downloadAttempts', 1);
         return 200;
 
