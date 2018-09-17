@@ -28,7 +28,7 @@ class TransactionContoller extends Controller
     public function Download(Request $request) {
         $download = new Transaction();
         $download = $download->where('salesId', $request->get('salesId'))->increment('downloadAttempts');
-        $download->save();
+        
 
         $get = new Transaction();
         $get = $get->where('salesId', $request->get('salesId'))->get();
