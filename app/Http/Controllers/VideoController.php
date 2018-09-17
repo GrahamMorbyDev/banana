@@ -36,7 +36,7 @@ class VideoController extends Controller
         $imagepath = $request->file('featuredimage')->store('videoimages');
 
         //Video
-        $videopath = $request->file('filename')->store('videos');
+        $videopath = $request->file('filename')->storeAs('videos', $request->get('title'));
 
         //Open Video Model
         $video = new Video();
