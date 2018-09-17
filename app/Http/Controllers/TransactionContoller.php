@@ -34,8 +34,9 @@ class TransactionContoller extends Controller
             ->get();
         $daily = 1;
 
+
         //Add Current to new daily number
-        $lifetime = $dmca[0]->downloadAttempts + $daily;
+        $lifetime = $dmca->downloadAttempts + $daily;
 
         //Update database
         DB::table('transactions')->where('salesId', '=', $request->get('salesId'))->update($lifetime);
