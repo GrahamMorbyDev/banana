@@ -28,7 +28,7 @@ class TransactionContoller extends Controller
     public function Download(Request $request) {
         $download = new Transaction();
         $download = $download->where('salesId', $request->get('salesId'))->increment('downloadAttempts');
-        
+
 
         $get = new Transaction();
         $get = $get->where('salesId', $request->get('salesId'))->get();
@@ -36,8 +36,7 @@ class TransactionContoller extends Controller
         if($get->downloadAttempts <= 3) {
             $filename = $request->get('filename');
             $filePath = public_path('storage/' . $filename);
-            $ext = pathinfo($filename, PATHINFO_EXTENSION);
-            return response()->download($filePath, $request->get('filename') . '.' . $ext);
+            return response()->download($filePath, $request->get('filename'));
         }else {
             return 403;
         }
