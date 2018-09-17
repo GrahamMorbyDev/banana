@@ -27,13 +27,13 @@ class TransactionContoller extends Controller
     //Download Video
     public function getDownload(Request $request) {
         $download = new Transaction();
-        $download = $download->where('salesId', $request->get('salesId'))->update('downloadAttempts', '+' , 1);
+        $download = $download->where('salesId', $request->get('salesId'))->increment('downloadAttempts');
         $download->save();
 
         $get = new Transaction();
         $get = $get->where('salesId', $request->get('salesId'))->get();
 
-        if($get->downloadAttempts < 4) {
+        if($get->downloadAttempts <= 3) {
             $filename = $request->get('filename');
             $filePath = public_path('storage/' . $filename);
             $ext = pathinfo($filename, PATHINFO_EXTENSION);
