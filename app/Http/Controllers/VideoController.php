@@ -33,12 +33,12 @@ class VideoController extends Controller
         $this->validateVideo($request);
 
         //Image
-        $imagepath = $request->file('featuredimage')->store('videoimages');
+        $imagepath = $request->file('featuredimage')->store('public/videoimages');
 
         $title = $request->get('title') . ".mp4";
 
         //Video
-        $videopath = $request->file('filename')->storeAs('videos', $title);
+        $videopath = $request->file('filename')->storeAs('public/videos', $title);
 
         //Open Video Model
         $video = new Video();
