@@ -32,15 +32,15 @@
     <![endif]-->
 </head>
 <body>
-<div class="conatainer">
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <h1>Welcome to Banana</h1>
             <p>Banana is a content delivery API for storing and delivering Media to a website and end user.</p>
-
+            <p>The main URL is https://banana-api.com/</p>
             <hr>
             <h3>Adding a video</h3>
-            <p>To add a video send a post request to /post/video/single - the route requires the name tag inside each input tag</p>
+            <p>To add a video send a post request to https://banana-api.com/post/video/single - the route requires the name tag inside each input tag</p>
             <p>Params expected and required</p>
             <ul>
                 <li>title -> String</li>
@@ -54,7 +54,7 @@
 
             <h3>Get a video to download</h3>
             <hr>
-            <p>To get a video send a get request to get/video and this method requires name and id's</p>
+            <p>To get a video send a get request to https://banana-api.com/get/video and this method requires name and id's</p>
             <p>Params expected and required</p>
             <ul>
                 <li>salesId -> String</li>
