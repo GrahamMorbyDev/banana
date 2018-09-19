@@ -27,7 +27,7 @@ class VideoController extends Controller
     }
 
     //Upload a Video
-    public function post(Request $request)
+    public function postVideo(Request $request)
     {
         //Validate the Video
         $this->validateVideo($request);

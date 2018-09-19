@@ -11,15 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 /*
 |--------------------------------------------------------------------------
 | Home Routes
 |--------------------------------------------------------------------------
 */
+    Route::get('/', 'PagesController@home')->name('welcome');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/docs', 'PagesController@docs')->name('docs');
 
@@ -30,7 +29,7 @@ Route::get('/', function () {
 */
     //Route::get('/get/video', 'VideoController@get')->middleware('auth:api');
     Route::get('/get/video/single', 'VideoController@single')->middleware('auth:api');
-    Route::post('/post/video/single', 'VideoController@post');
+    Route::post('/post/video/single', 'VideoController@postVideo');
     Route::post('/delete/video/single', 'VideoController@delete')->middleware('auth:api');
 
 /*
