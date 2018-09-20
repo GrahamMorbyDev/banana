@@ -77,7 +77,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Banana v0.5 (Beta)
+                    Banana v0.7 (Beta)
                 </div>
 
                 <div class="links">
