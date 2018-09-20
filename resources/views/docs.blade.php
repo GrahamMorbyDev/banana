@@ -51,16 +51,31 @@
                 <li>filesize -> String</li>
             </ul>
             <p>Names and ID's must match the above</p>
-
+            <hr>
+            <h3>Adding a transaction</h3>
+            <hr>
+            <p>To add a new transaction send a post request to https://banana-api.com/add/transaction and this method requires name and id's</p>
+            <p>Params expected and required</p>
+            <ul>
+                <li>salesId -> String</li>
+                <li>filename ->String</li>
+                <li>salesId ->String</li>
+                <li>customerEmail ->String</li>
+                <li>purchaseDate ->String</li>
+            </ul>
+            <p>If success 200.</p>
+            <p>Fail 403</p>
+            <hr>
             <h3>Get a video to download</h3>
             <hr>
-            <p>To get a video send a get request to https://banana-api.com/get/video and this method requires name and id's</p>
+            <p>To get a video send a post request to https://banana-api.com/get/video and this method requires name and id's</p>
             <p>Params expected and required</p>
             <ul>
                 <li>salesId -> String</li>
                 <li>filename ->String</li>
             </ul>
-            <p>If success the user will get a download based on limits if fail you wil get a 403 return.</p>
+            <p>If success the user will get a download based on limits </p>
+            <p>Fail 403</p>
         </div>
     </div>
 </div>
