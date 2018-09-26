@@ -59,7 +59,7 @@
             <ul>
                 <li>salesId -> String</li>
                 <li>filename ->String</li>
-                <li>salesId ->String</li>
+                <li>storeId ->String</li>
                 <li>customerEmail ->String</li>
                 <li>purchaseDate ->String</li>
             </ul>
