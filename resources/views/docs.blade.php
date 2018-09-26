@@ -49,6 +49,7 @@
                 <li>featuredimage -> File</li>
                 <li>storeId -> integer</li>
                 <li>filesize -> String</li>
+                <li>file_id -> String</li>
             </ul>
             <p>Names and ID's must match the above</p>
             <hr>
